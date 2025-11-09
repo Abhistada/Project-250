@@ -1,9 +1,21 @@
 import express from "express";
-import { createEvent, deleteEvent, upload } from "../controllers/eventController.js";
+import { 
+  createEvent, 
+  deleteEvent, 
+  getAllEvents, 
+  getEventById, 
+  upload 
+} from "../controllers/eventController.js";
 
 const router = express.Router();
 
-// Create Event
+// 🟢 Get all events
+router.get("/", getAllEvents);
+
+// 🔵 Get single event by ID
+router.get("/:id", getEventById);
+
+// 🟣 Create new event
 router.post(
   "/",
   upload.fields([
@@ -13,7 +25,7 @@ router.post(
   createEvent
 );
 
-// Delete Event
+// 🔴 Delete event by ID
 router.delete("/:id", deleteEvent);
 
 export default router;

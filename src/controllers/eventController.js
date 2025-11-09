@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
 });
 export const upload = multer({ storage });
 
-// ✅ Create new event
+// ✅ Create new event (Organizer)
 export const createEvent = async (req, res) => {
   try {
     const {
@@ -53,7 +53,33 @@ export const createEvent = async (req, res) => {
   }
 };
 
-// 🔴 Delete event by ID
+// 🔍 Get all events
+export const getAllEvents = async (req, res) => {
+  try {
+    const events = await Event.findAll({ order: [["date", "ASC"]] });
+    res.status(200).json(events);
+  } catch (error) {
+    res.status(500).json({ message: "❌ Failed to fetch events", error: error.message });
+  }
+};
+
+// 🔎 Get event by ID
+export const getEventById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const event = await Event.findByPk(id);
+
+    if (!event) {
+      return res.status(404).json({ message: "Event not found" });
+    }
+
+    res.status(200).json(event);
+  } catch (error) {
+    res.status(500).json({ message: "❌ Failed to fetch event", error: error.message });
+  }
+};
+
+// 🗑️ Delete event by ID
 export const deleteEvent = async (req, res) => {
   try {
     const { id } = req.params;
