@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upcoming Events - Ayojon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="images/logo.png" alt="Ayojon Logo">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="Events.html">Events</a>
+      <a href="#">QR Code</a>
+      <a href="#">Organizer Dashboard</a>
+      <a href="#">Notifications</a>
+      <a href="#">Analytics</a>
+      <a href="#">About Us</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <!-- Events Page Content -->
+  <main>
+   <section class="events-section">
+  <h2>Upcoming Events</h2>
+  <div class="events-container">
+
+    <div class="event-card">
+      <h3>SUST Cultural Fest 2025</h3>
+      <p>Date: 25th Sept 2025 </p>
+      <p>Time: 5:00 PM</p>
+      <p>Location: Main Auditorium, SUST</p>
+      <p class="price">🎟️ Ticket Price: 500 BDT</p>
+      <button>Book Now</button>
+    </div>
+
+    <div class="event-card">
+      <h3>Tech Conference 2025</h3>
+      <p>Date: 30th Sept 2025 </p>
+      <p>Time: 10:00 AM</p>
+      <p>Location: Convention Center</p>
+      <p class="price">🎟️ Ticket Price: 1000 BDT</p>
+      <button>Book Now</button>
+    </div>
+
+    <div class="event-card">
+      <h3>University Tech Fest 2025</h3>
+      <p>Date: 10th Oct 2025 </p>
+      <p>Time: 9:00 AM</p>
+      <p>Location: IICT, SUST</p>
+      <p class="price">🎟️ Ticket Price: 300 BDT</p>
+      <button>Book Now</button>
+    </div>
+
+    <div class="event-card">
+      <h3>VisionX 2025 - AI powered National Innovation Challenge</h3>
+      <p>Date: 15th Nov 2025 </p>
+      <p>Time: 11:00 AM</p>
+      <p>Location: Nabab Nawab Ali Chowdhury Senate Bhaban, Dhaka</p>
+      <p class="price">🎟️ Ticket Price: 800 BDT</p>
+      <button>Book Now</button>
+    </div>
+
+    <div class="event-card">
+      <h3>Dream Wedding Expo</h3>
+      <p>Date: 22nd Nov 2025 </p>
+      <p>Time: 2:00 PM</p>
+      <p>Location: Khan Palace</p>
+      <p class="price">🎟️ Ticket Price: 400 BDT</p>
+      <button>Book Now</button>
+    </div>
+
+    <div class="event-card">
+      <h3>Music Concert Night</h3>
+      <p>Date: 5th Dec 2025 </p>
+      <p>Time: 7:00 PM</p>
+      <p>Location: Open Air Stadium</p>
+      <p class="price">🎟️ Ticket Price: 1200 BDT</p>
+      <button>Book Now</button>
+    </div>
+
+    <div class="event-card">
+      <h3>CSE Carnival</h3>
+      <p>Date: 22nd Dec 2025 </p>
+      <p>Time: 4:00 PM</p>
+      <p>Location: IICT, SUST</p>
+      <p class="price">🎟️ Ticket Price: 350 BDT</p>
+      <button>Book Now</button>
+    </div>
+
+  </div>
+</section>
+
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Ayojon. All rights reserved.</p>
+  </footer>
+  <!-- Booking Popup -->
+<div class="popup" id="bookingPopup">
+  <div class="popup-content">
+    <h2>Your Celebration Starts Here!</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-icon">📅</div>
+         <button class="brwse-btn" onclick="closePopup()">Browse Events</button>
+      </div>
+      <div class="step">
+       <div class="step-icon">💳</div>
+<button class="paymnt-btn" onclick="window.location.href='payment.html'">Payment Now</button>
+
+      </div>
+      <div class="step">
+        <div class="step-icon">🎟️</div>
+        <button class="tckt-btn" onclick="window.location.href='ticket.html'">Receive Ticket</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Popup Script -->
+<script>
+  // open popup when any "Book Now" button is clicked
+  document.querySelectorAll('.event-card button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById('bookingPopup').style.display = 'flex';
+    });
+  });
+
+  function closePopup() {
+    document.getElementById('bookingPopup').style.display = 'none';
+    // later redirect to next booking page if you want:
+    // window.location.href = "booking.html";
+  }
+</script>
+
+</body>
+</html>
