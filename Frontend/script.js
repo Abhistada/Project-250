@@ -1,7 +1,7 @@
 // Sample mock events
 const events = [
-  { id: 1, title: "SUST Cultural Fest", date: "2025-09-25", location: "Main Auditorium,SUST" },
-  { id: 2, title: "Tech Conference 2025", date: "2025-09-30", location: "Convention Center" },
+  { id: 1, title: "Job Fest 2025", date: "2025-11-25", location: "Main Auditorium,SUST" },
+  { id: 2, title: "Career Guideline Seminar", date: "2025-11-30", location: "Central Auditorium,SUST" },
 ];
 
 // Render events

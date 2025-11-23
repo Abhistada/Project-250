@@ -1,3 +1,6 @@
+// ======================
+//  Ayojon Backend Setup
+// ======================
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
@@ -12,18 +15,15 @@ import userRoutes from "./routes/userRoutes.js";
 import eventRoutes from "./routes/eventRoutes.js";
 import bookingRoutes from "./routes/bookingRoutes.js";
 
-
-
-
 dotenv.config();
 
 const app = express();
 
-// ✅ Fix __dirname (for ES Modules)
+// ✅ Fix __dirname for ES Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// ✅ Middlewares
+// ✅ Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
@@ -38,7 +38,12 @@ app.use("/api/users", userRoutes);
 app.use("/api/events", eventRoutes);
 app.use("/api/bookings", bookingRoutes);
 
-// ✅ Default Route
+// ✅ Simple test route for frontend connection
+app.get("/api/test", (req, res) => {
+  res.json({ message: "Backend connection successful!" });
+});
+
+// ✅ Default route
 app.get("/", (req, res) => {
   res.send("✅ Ayojon backend running successfully!");
 });
@@ -51,7 +56,7 @@ sequelize
   .authenticate()
   .then(() => {
     console.log("✅ MySQL connected successfully");
-    return sequelize.sync({ alter: true }); // auto-sync tables safely
+    return sequelize.sync({ alter: true }); // Sync DB tables
   })
   .then(() => {
     console.log("✅ Database synced successfully");
